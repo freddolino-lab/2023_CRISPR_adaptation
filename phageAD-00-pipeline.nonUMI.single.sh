@@ -3,16 +3,10 @@ set -e
 
 # Setting up parameters, using environmental variables in bash
 ## Defining the path to scripts for this data analysis project
-### CUSTOMIZE HERE (2 lines) ###
-batchAccn='202304'
-dataType='nonUMI'
-### CUSTOMIZE ENDS ###
-
-projectDir='/home/diaorch/projects/crisprAdaptation/crisprAdaptation-'"$batchAccn"'/'
-source "$projectDir"'crispr'"$batchAccn"'_adapt-00-envSetUp.sh'
+source phageAD-00-paths.sh
 
 # Setting up / activating conda environment
-conda activate "$CONDA_OVERALL_NAME"
+conda activate adapt_py-3.7.yml
 
 # Step 00 to Step 01 are the same as UMI sample analysis
 
@@ -98,7 +92,7 @@ Rscript "$applyJackpotCap" example.padded.bed 0.05
 conda deactivate
 
 echo "=== Retrieving genomic sequences by BED into FASTA ==="
-conda activate "$CONDA_OVERALL_NAME"
+conda activate adapt_py-3.7.yml
 python3 "$getFastaFromBed" example.padded.bed 04-align_ref/phageAD_2023-ref_Nme_MDA.fa > example.padded.fasta
 
 # Step 06

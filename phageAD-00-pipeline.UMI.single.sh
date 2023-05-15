@@ -5,13 +5,10 @@ set -e
 
 # Setting up parameters, using environmental variables in bash
 ## Defining the path to scripts for this data analysis project
-### CUSTOMIZE HERE (2 lines) ###
-batchAccn='202304'
-dataType='UMI_FatI'
-### CUSTOMIZE ENDS ###
+source phageAD-00-paths.sh
 
 # Setting up / activating conda environment
-conda activate "$CONDA_OVERALL_NAME"
+conda activate adapt_py-3.7.yml
 
 mkdir "$analysisDataDir"
 
@@ -89,7 +86,9 @@ gzip example.umi.seq.fastq.paired.fq
 gzip example.spacer.seq.fastq.paired.fq
 
 echo "=== DEDUPLICATION extract ==="
+conda activate adapt_umitools-3.7.yml
 "$UMITOOLS_PATH" extract -I example.umi.seq.fastq.paired.fq.gz --bc-pattern=NNNNNNNN --read2-in=example.spacer.seq.fastq.paired.fq.gz --stdout=example.umi.extract.fastq.gz --read2-out=example.spacer.extract.fastq.gz --log=example.umitools.extract.log
+conda activate adapt_py-3.7.yml
 
 # Step 04:
 # aligning to N. meningitidis and phage genome
@@ -112,7 +111,10 @@ rm example.bam
 "$SAMTOOLS_PATH" index example.sorted.bam
 
 echo '=== FINISH DEDUPLICATION ==='
+conda activate adapt_umitools-3.7.yml
 "$UMITOOLS_PATH" dedup -I example.sorted.bam --output-stats=03-dedup/example.dedup.stats -S example.sorted.dedup.bam > example.dedup.log
+conda activate adapt_py-3.7.yml
+
 "$SAMTOOLS_PATH" index example.sorted.dedup.bam
 
 echo "=== Filter DEDUP bam file for uniquely mapped reads ==="
@@ -138,8 +140,6 @@ else
 fi
 rm example.uniq.reverse.sam
 "$SAMTOOLS_PATH" index example.uniq.reverse.bam
-
-
 
 # Step 05:
 # getting padded sequences
