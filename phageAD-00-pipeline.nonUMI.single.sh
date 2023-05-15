@@ -102,15 +102,7 @@ conda activate "$CONDA_OVERALL_NAME"
 python3 "$getFastaFromBed" example.padded.bed 04-align_ref/phageAD_2023-ref_Nme_MDA.fa > example.padded.fasta
 
 # Step 06
-# visualizaing PAMs
-# Part 1 and 2
-# reverse complementing extracted sequences, calculate PWM
-mkdir 06-rc/
-echo '=== Step 06: extraction of genomic contexts ==='
-python3 "$getReverseComplement" 05-pad/example.padded.fa 06-rc/example.rc.fasta
-
-# Step 07
-# separating files by Nme or MDA-phage sources
-source phageAD-06-analysisByChr.sh
+# correct to representative strand
+# Step 06 is the same as in UMI sample analysis
 
 echo 'ANALYSIS WAS SUCCESSFUL'

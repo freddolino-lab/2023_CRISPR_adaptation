@@ -162,13 +162,12 @@ echo "=== Retrieving genomic sequences by BED into FASTA ==="
 python3 "$getFastaFromBed" example.padded.bed 04-align_ref/phageAD_2023-ref_Nme_MDA.fa > example.padded.fasta
 
 # Step 06
+# correct to representative strand
 mkdir 06-rc/
 echo '=== Step 06: extraction of genomic contexts ==='
 python3 "$getReverseComplement" example.padded.fasta 06-rc/example.padded.rc.fasta
-
-# Step 07
-# separating files by Nme or MDA-phage sources
-source phageAD-06-analysisByChr.sh
+grep -A 2 '>NC' 06-rc/example.padded.rc.fasta | sed '/^--$/d' > 06-rc/example.Nme.fa
+grep -A 2 '>MDA' 06-rc/example.padded.rc.fasta | sed '/^--$/d' > 06-rc/example.MDA.fa
 
 # Final:
 # print success message
