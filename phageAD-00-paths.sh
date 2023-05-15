@@ -3,8 +3,9 @@
 # CRISPR adaptation project with Yan Zhang Lab
 
 ## ===== program paths =====
-# bcl2fastq='/home/petefred/bin/bcl2fastq'
+
 CONDA_OVERALL_NAME='adapt_py-3.7'
+CONDA_PATH="$HOME"'local/miniconda3/envs/adapt_py-3.7/bin/'
 CUTADAPT_PATH="$CONDA_PATH"'cutadapt'
 BOWTIE2_PATH='/usr/bin/bowtie2' # ver 2.4.1
 BOWTIE2BUILD_PATH='/usr/bin/bowtie2-build'
