@@ -1,7 +1,7 @@
 # 2023 CRISPR apoCas9
 
 For detailed descriptions of analysis, see the Materials and Methods section.
-Data is available at NCBI GEO.
+Raw data and processed output files are available at the NCBI Gene Expression Omnibus with the accession number GSE302092.
 
 ## Analysis steps
 
@@ -31,7 +31,7 @@ The numbers in script names indicate the steps for which each scripts are writte
   + `bedtools`: 2.19.1
   + `FastQC` 0.11.8
   + `MultiQC` 0.9
-+ Genome: Neisseria meningitidis strain 8013 (RefSeq accession number: NC_017501.1, GenBank assembly accession: GCF_000026965.1, v1); MDA phage genomic sequence, supplied by collaborators
++ Genome: Neisseria meningitidis strain 8013 (RefSeq accession number: NC_017501.1, GenBank assembly accession: GCF_000026965.1, v1); MDA phage genomic sequence, supplied by collaborators. A combined genome sequence file is provided.
 
 ## Data directory structure
 
