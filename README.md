@@ -31,7 +31,7 @@ The numbers in script names indicate the steps for which each scripts are writte
   + `bedtools`: 2.19.1
   + `FastQC` 0.11.8
   + `MultiQC` 0.9
-+ Genome: Neisseria meningitidis strain 8013 (RefSeq accession number: NC_017501.1, GenBank assembly accession: GCF_000026965.1, v1); MDA phage genomic sequence, supplied by collaborators. A combined genome sequence file is provided.
++ Genome: Neisseria meningitidis strain 8013 (RefSeq accession number: NC_017501.1, GenBank assembly accession: GCF_000026965.1, v1); MDA phage genomic sequence, supplied by collaborators. A combined genome sequence file is provided (`202211-genomeNme_phageMDA_ref.fa`).
 
 ## Data directory structure
 
